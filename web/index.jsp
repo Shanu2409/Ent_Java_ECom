@@ -4,6 +4,9 @@
     Author     : shanu
 --%>
 
+
+<%@page import="java.sql.Connection"%>
+<%@page import="com.db.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,7 +16,7 @@
         <%@include file="Component/allCss.jsp" %>
         <style>
             body {
-                background-color: #fcfcfc;
+                background-color: #f0f1f2;
             }
             
             .back-img {
@@ -29,6 +32,7 @@
     <body>
         <%@include file="Component/navbar.jsp" %>
         <div class="container-fluid back-img"></div>
+        
         
         
         
