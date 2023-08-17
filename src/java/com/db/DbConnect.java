@@ -17,7 +17,14 @@ public class DbConnect {
         try {
             //Class.forName("org.mysql.cj.jdbc.Driver");
 
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "notadmin");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecommerce?autoReconnect=true&useSSL=false", "root", "notadmin");
+            
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("Select * from User");
+            
+            while(rs.next()) {
+                System.out.println(rs.getString(1));
+            }
 
             return con;
         } catch (Exception e) {

@@ -18,7 +18,7 @@
             body {
                 background-color: #f0f1f2;
             }
-            
+
             .back-img {
                 background: url(img/banner.jpeg);
                 height: 50vh;
@@ -32,10 +32,10 @@
     <body>
         <%@include file="Component/navbar.jsp" %>
         <div class="container-fluid back-img"></div>
-        
-        
-        
-        
+
+
+
+
         <!--start recent products-->
 
         <div class="container-fluid mt-5">
@@ -59,7 +59,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
@@ -78,7 +78,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
@@ -97,7 +97,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
@@ -121,14 +121,14 @@
                 <a href="" class="btn btn-danger btn-sm">View All</a>
             </div>
         </div>
-    
-        
+
+
         <!--end recent products-->
-        
+
         <hr />
-        
+
         <!--start new product-->
-        
+
         <div class="container-fluid mt-5">
             <h3 class="text-center">New Products</h3>
             <div class="row ml-5 mr-5">
@@ -150,7 +150,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
@@ -169,7 +169,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
@@ -188,7 +188,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
@@ -212,14 +212,14 @@
                 <a href="" class="btn btn-danger btn-sm">View All</a>
             </div>
         </div>
-    
-        
+
+
         <!--end new product-->
-        
+
         <hr />
-        
+
         <!--start old product-->
-        
+
         <div class="container-fluid mt-5">
             <h3 class="text-center">Old Products</h3>
             <div class="row ml-5 mr-5">
@@ -241,7 +241,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
@@ -260,7 +260,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
@@ -279,7 +279,7 @@
                     </div>
 
                 </div>
-                
+
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
@@ -303,11 +303,11 @@
                 <a href="" class="btn btn-danger btn-sm">View All</a>
             </div>
         </div>
-    
-        
+
+
         <!--end old product-->
-    
-        
+
+
         <%@include file="Component/footer.jsp" %>
     </body>
 </html>
