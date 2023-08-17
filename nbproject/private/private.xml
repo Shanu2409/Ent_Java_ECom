@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/db/DbConnect.java</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/index.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Component/style.css</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/UserHome.jsp</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/DAO/UserDAO.java</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/DAO/UserDAOImpl.java</file>
             <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Register.jsp</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Admin/AdminHome.jsp</file>
             <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Login.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Component/footer.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Component/navbar.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/db/Test.java</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/user/servlet/LoginServlet.java</file>
         </group>
     </open-files>
 </project-private>

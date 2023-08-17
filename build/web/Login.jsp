@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,17 +22,22 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="text-center mb-5">Login Page</h4>
-                            <form>
+                            <c:if test="${not empty failMsg}">
+                                <h5 class="text-center text-danger mb-2">${failMsg}</h5>
+                                <c:remove var="failMsg" scope="session" />
+                            </c:if>
+                                
+                            <form action="login" method="post">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp">
+                                    <input type="email" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="email">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
-                                    <input type="password" class="form-control" required id="exampleInputPassword1">
+                                    <input type="password" class="form-control" required id="exampleInputPassword1" name="pass">
                                 </div>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="checkbox">
                                     <label class="form-check-label" for="exampleCheck1">Keep you sign in forever ?</label>
                                 </div>
                                 <div class="text-center">
