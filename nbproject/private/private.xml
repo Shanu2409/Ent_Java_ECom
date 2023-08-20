@@ -4,11 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Admin/AddProducts.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Admin/AdminHome.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Login.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Admin/Orders.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Admin/AllProducts.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Admin/navbarAdmin.jsp</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/entity/ProductDetails.java</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/DAO/ProductsDAO.java</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Register.jsp</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/DAO/ProductsDAOImpl.java</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/admin/servlet/ProductAdd.java</file>
         </group>
     </open-files>
 </project-private>

@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,14 +22,23 @@
                     <div class="card mt-2">
                         <div class="card-body">
                             <h4 class="text-center">Add Products</h4>
-                            <form action="../AdminAddBookServlet" method="post">
+                            <c:if test="${not empty sucsMsg }">
+                                <p class="text-center text-success mb-2">${sucsMsg}</p>
+                                <c:remove var="sucsMsg" scope="session" />
+                            </c:if>
+                                
+                            <c:if test="${not empty failMsg }">
+                                <p class="text-center text-danger mb-2">${failMsg}</p>
+                                <c:remove var="failMsg" scope="session" />
+                            </c:if>   
+                            <form action="../AddProducts" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="exampleInputName">Products Name</label>
                                     <input type="text" class="form-control" id="exampleInputName" required aria-describedby="emailHelp" name="pname">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Owner Name</label>
-                                    <input type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="pauthor">
+                                    <input type="text" class="form-control" id="exampleInputEmail1" required aria-describedby="emailHelp" name="powner">
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPhone">Price</label>
