@@ -7,7 +7,10 @@ package com.DAO;
 
 import com.entity.ProductDetails;
 import java.sql.Connection;
+import java.util.List;
 
 public interface ProductsDAO {
     public boolean AddProducts(ProductDetails b);
+    
+    public List<ProductDetails> getAllProducts();
 }

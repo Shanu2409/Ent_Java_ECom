@@ -33,6 +33,14 @@ public class ProductDetails {
         this.email = email;
     }
 
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
     public String getProductname() {
         return productname;
     }
