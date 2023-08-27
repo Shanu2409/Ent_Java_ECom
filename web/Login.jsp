@@ -21,12 +21,16 @@
                 <div class="col-md-4 offset-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="text-center mb-5">Login Page</h4>
+                            <h4 class="text-center my-2">Login Page</h4>
                             <c:if test="${not empty failMsg}">
                                 <h5 class="text-center text-danger mb-2">${failMsg}</h5>
                                 <c:remove var="failMsg" scope="session" />
                             </c:if>
-                                
+                            <c:if test="${not empty sucsMsgLotout}">
+                                <h5 class="text-center text-success mb-2">${sucsMsgLotout}</h5>
+                                <c:remove var="sucsMsgLotout" scope="session" />
+                            </c:if>
+
                             <form action="login" method="post">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
@@ -52,7 +56,7 @@
                 </div>
             </div>
         </div>
-        
+
         <%@include file="Component/footer.jsp" %>
     </body>
 </html>

@@ -10,6 +10,7 @@
 <%@page import="com.entity.ProductDetails"%>
 <%@page import="com.db.DbConnect"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
 <%@page import="com.DAO.ProductsDAOImpl"%>
 <%@page import="com.DAO.ProductsDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,6 +29,9 @@
     <body>
 
         <%@include file="navbarAdmin.jsp" %>
+        <c:if test="${empty userObj}">
+            <c:redirect url="../Login.jsp" />
+        </c:if>
         <h3 class="text-center">All Products</h3>
 
         <c:if test="${not empty sucsMsg }">
@@ -72,8 +76,8 @@
                     <td>
 
                         <a href="./Edit_products.jsp?Pid=<%= p.getProductId()%>"
-                           class="btn btn-sm btn-primary">Edit</a>
-                        <a href="../delete?Pid=<%= p.getProductId()%>" class="btn btn-sm btn-danger">Delete</a>
+                           class="btn btn-sm btn-primary"><i class="fa-regular fa-pen-to-square"></i> Edit</a>
+                        <a href="../delete?Pid=<%= p.getProductId()%>" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i> Delete</a>
                     </td>
                 </tr>
                 <%

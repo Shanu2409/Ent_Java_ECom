@@ -14,6 +14,9 @@
     <body>
 
         <%@include file="navbarAdmin.jsp" %>
+        <c:if test="${empty userObj}">
+            <c:redirect url="../Login.jsp" />
+        </c:if>
         <h3 class="text-center">All Orders</h3>
         
         <table class="table table-striped">

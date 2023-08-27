@@ -29,7 +29,6 @@ public class ProductsDAOImpl implements ProductsDAO {
 
         try {
             String sql = "insert into product_details(productname, owner, price, productCategory, status, photo, email) values(?,?,?,?,?,?,?)";
-            System.out.println("Status : " + p.getStatus() + "---------------------------------------");
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, p.getProductname());
             ps.setString(2, p.getOwner());

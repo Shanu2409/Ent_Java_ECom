@@ -15,7 +15,9 @@
     </head>
     <body style="background-color: #f0f1f2">
         <%@include file="navbarAdmin.jsp" %>
-
+        <c:if test="${empty userObj}">
+            <c:redirect url="../Login.jsp" />
+        </c:if>
         <div class="container">
             <div class="row">
                 <div class="col-md-4 offset-md-4">
