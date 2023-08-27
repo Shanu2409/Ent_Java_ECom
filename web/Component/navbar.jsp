@@ -1,7 +1,7 @@
 <div class="container-fluid p-3">
     <div class="row">
         <div class="col-md-3">
-            <h3>E-Commerce</h3>
+            <h3><a href="/E_Com">E-Commerce</a></h3>
         </div>
         <div class="col-md-6">
             <form class="form-inline my-2 my-lg-0">

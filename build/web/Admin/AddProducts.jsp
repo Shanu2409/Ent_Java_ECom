@@ -51,6 +51,7 @@
                                     <select class="form-control" name="pcategory" id="exampleFormControlSelect1">
                                         <option selected="">----Select Option-----</option>
                                         <option value="New">New Product</option>
+                                        <option value="Old">Old Product</option>
                                     </select>
                                 </div>
                                 <div class="form-group">

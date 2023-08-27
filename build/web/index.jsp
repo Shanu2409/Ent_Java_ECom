@@ -5,6 +5,11 @@
 --%>
 
 
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.Collection"%>
+<%@page import="java.util.List"%>
+<%@page import="com.entity.ProductDetails"%>
+<%@page import="com.DAO.ProductsDAOImpl"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.db.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -38,84 +43,43 @@
 
         <!--start recent products-->
 
-        <div class="container-fluid mt-5">
+         <div class="container-fluid mt-5">
             <h3 class="text-center">Recent Products</h3>
             <div class="row ml-5 mr-5">
+
+                <%
+                    ProductsDAOImpl dao = new ProductsDAOImpl(DbConnect.getCon());
+                    List<ProductDetails> list2 = dao.getAllProducts();
+                    
+                    Collections.reverse(list2);
+                    for (ProductDetails p : list2) {
+                %>
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img alt="" src="img/product/R.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
+                            <img alt="${p.getProductname}" src="${pageContext.request.contextPath}/products/<%=p.getPhotoName()%>" width="200px" height="200px" class="img-thumblin"/>
+                            <p><%= p.getProductname()%></p>
+                            <p><%= p.getOwner()%></p>
+                            <p>Category : <%= p.getProductCategory()%></p>
                             <div class="row text-center justify-content-center">
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
                                 <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
+                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-indian-rupee-sign"></i> <%= p.getPrice()%></a>
                             </div>
 
 
                         </div>
                     </div>
-
                 </div>
 
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img alt="" src="img/product/temp.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
-                            <div class="row text-center justify-content-center">
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
-                            </div>
+                <%
+                    }
+                %>
 
 
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img alt="" src="img/product/R.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
-                            <div class="row text-center justify-content-center">
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
-                            </div>
 
 
-                        </div>
-                    </div>
 
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img alt="" src="img/product/temp.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
-                            <div class="row text-center justify-content-center">
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
             </div>
             <div class="text-center my-3">
                 <a href="" class="btn btn-danger btn-sm">View All</a>
@@ -129,90 +93,49 @@
 
         <!--start new product-->
 
+        
+
         <div class="container-fluid mt-5">
             <h3 class="text-center">New Products</h3>
             <div class="row ml-5 mr-5">
+
+                <%
+//                    ProductsDAOImpl dao = new ProductsDAOImpl(DbConnect.getCon());
+                    List<ProductDetails> list = dao.getNewProducts();
+
+                    for (ProductDetails p : list) {
+                %>
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img alt="" src="img/product/R.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
+                            <img alt="${p.getProductname}" src="${pageContext.request.contextPath}/products/<%=p.getPhotoName()%>" width="200px" height="200px" class="img-thumblin"/>
+                            <p><%= p.getProductname()%></p>
+                            <p><%= p.getOwner()%></p>
+                            <p>Category : <%= p.getProductCategory()%></p>
                             <div class="row text-center justify-content-center">
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
                                 <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
+                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-indian-rupee-sign"></i> <%= p.getPrice()%></a>
                             </div>
 
 
                         </div>
                     </div>
-
                 </div>
 
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img alt="" src="img/product/temp.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
-                            <div class="row text-center justify-content-center">
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
-                            </div>
+                <%
+                    }
+                %>
 
 
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img alt="" src="img/product/R.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
-                            <div class="row text-center justify-content-center">
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
-                            </div>
 
 
-                        </div>
-                    </div>
 
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img alt="" src="img/product/temp.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
-                            <div class="row text-center justify-content-center">
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
             </div>
             <div class="text-center my-3">
                 <a href="" class="btn btn-danger btn-sm">View All</a>
             </div>
         </div>
-
 
         <!--end new product-->
 
@@ -223,81 +146,39 @@
         <div class="container-fluid mt-5">
             <h3 class="text-center">Old Products</h3>
             <div class="row ml-5 mr-5">
+
+                <%
+//                    ProductsDAOImpl dao = new ProductsDAOImpl(DbConnect.getCon());
+                    List<ProductDetails> list3 = dao.getOldProducts();
+
+                    for (ProductDetails p : list3) {
+                %>
                 <div class="col-md-3">
                     <div class="card">
                         <div class="card-body text-center">
-                            <img alt="" src="img/product/R.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
+                            <img alt="${p.getProductname}" src="${pageContext.request.contextPath}/products/<%=p.getPhotoName()%>" width="200px" height="200px" class="img-thumblin"/>
+                            <p><%= p.getProductname()%></p>
+                            <p><%= p.getOwner()%></p>
+                            <p>Category : <%= p.getProductCategory()%></p>
                             <div class="row text-center justify-content-center">
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
                                 <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
+                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-indian-rupee-sign"></i> <%= p.getPrice()%></a>
                             </div>
 
 
                         </div>
                     </div>
-
                 </div>
 
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img alt="" src="img/product/temp.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
-                            <div class="row text-center justify-content-center">
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
-                            </div>
+                <%
+                    }
+                %>
 
 
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img alt="" src="img/product/R.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
-                            <div class="row text-center justify-content-center">
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
-                            </div>
 
 
-                        </div>
-                    </div>
 
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body text-center">
-                            <img alt="" src="img/product/temp.png" width="200px" height="200px" class="img-thumblin"/>
-                            <p>Some thing</p>
-                            <p>hf9wernf92834fn98e9nwe</p>
-                            <p>Catagorie : New</p>
-                            <div class="row text-center justify-content-center">
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
-                                <a href="" class="btn btn-danger btn-sm ml-1">299</a>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                </div>
             </div>
             <div class="text-center my-3">
                 <a href="" class="btn btn-danger btn-sm">View All</a>

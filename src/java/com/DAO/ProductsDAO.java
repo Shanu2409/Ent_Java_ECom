@@ -19,4 +19,8 @@ public interface ProductsDAO {
     public boolean UpdateEditProducts(ProductDetails p);
     
     public boolean DeleteProducts(int id);
+    
+    public List<ProductDetails> getNewProducts();
+    
+    public List<ProductDetails> getOldProducts();
 }
