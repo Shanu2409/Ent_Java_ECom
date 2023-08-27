@@ -26,7 +26,7 @@
                                 <p class="text-center text-success mb-2">${sucsMsg}</p>
                                 <c:remove var="sucsMsg" scope="session" />
                             </c:if>
-                                
+
                             <c:if test="${not empty failMsg }">
                                 <p class="text-center text-danger mb-2">${failMsg}</p>
                                 <c:remove var="failMsg" scope="session" />
@@ -53,17 +53,23 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Product Status</label>
-                                    <select class="form-control" name="pstatus" id="exampleFormControlSelect1">
-                                        <option selected="">----Select Option-----</option>
-                                        <option value="Active">Active</option>
-                                        <option value="Inactive">Inactive</option>
-                                    </select>
+                                    <div class="radio-group">
+                                        <label>
+                                            <input type="radio" name="pstatus" value="1" checked>
+                                            Active
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="pstatus" value="2">
+                                            Inactive
+                                        </label>
+                                    </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleFormControlFile1">Upload Photo</label>
                                     <input type="file" name="bimg" class="form-control-file" id="exampleFormControlFile1">
                                 </div>
-                                
+
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary mt-4"><i class="fa-solid fa-plus"></i> Add</button>
                                 </div>

@@ -13,4 +13,10 @@ public interface ProductsDAO {
     public boolean AddProducts(ProductDetails b);
     
     public List<ProductDetails> getAllProducts();
+    
+    public ProductDetails getProductDetailById(int ProductId);
+    
+    public boolean UpdateEditProducts(ProductDetails p);
+    
+    public boolean DeleteProducts(int id);
 }

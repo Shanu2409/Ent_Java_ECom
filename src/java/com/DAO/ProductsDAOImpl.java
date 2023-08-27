@@ -29,7 +29,7 @@ public class ProductsDAOImpl implements ProductsDAO {
 
         try {
             String sql = "insert into product_details(productname, owner, price, productCategory, status, photo, email) values(?,?,?,?,?,?,?)";
-
+            System.out.println("Status : " + p.getStatus() + "---------------------------------------");
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, p.getProductname());
             ps.setString(2, p.getOwner());
@@ -82,6 +82,83 @@ public class ProductsDAOImpl implements ProductsDAO {
         }
         
         return list;
+    }
+
+       @Override
+    public boolean UpdateEditProducts(ProductDetails p) {
+        boolean f = false;
+        
+           try {
+               String sql = "update product_details set productname = ?, owner = ?, price = ?, status = ? where productid = ?";
+               
+               PreparedStatement ps = con.prepareStatement(sql);
+               ps.setString(1, p.getProductname());
+               ps.setString(2, p.getOwner());
+               ps.setString(3, p.getPrice());
+               ps.setString(4, p.getStatus());
+               ps.setInt(5, p.getProductId());
+               
+               int i = ps.executeUpdate();
+               
+               if (i == 1){
+                   f = true;
+               }
+               
+            
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+        
+        return f;
+    }
+
+ @Override
+    public ProductDetails getProductDetailById(int ProductId) {
+        ProductDetails p = null;
+        
+        try {
+            String sql = "select * from product_details where productid = ?";
+            PreparedStatement pt = con.prepareStatement(sql);
+            pt.setInt(1, ProductId);
+            ResultSet rs = pt.executeQuery();
+            
+            while(rs.next()){
+                p = new ProductDetails();
+                p.setProductId(rs.getInt(1));
+                p.setProductname(rs.getString(2));
+                p.setOwner(rs.getString(3));
+                p.setPrice(rs.getString(4));
+                p.setProductCategory(rs.getString(5));
+                p.setStatus(rs.getString(6));
+                p.setPhotoName(rs.getString(7));
+                p.setEmail(rs.getString(8));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return p;
+    }
+
+    @Override
+    public boolean DeleteProducts(int id) {
+        boolean f = false;
+        
+        try {
+            String sql = "delete from product_details where productid = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, id);
+            
+            int i = ps.executeUpdate();
+            
+            if (i == 1) {
+                f = true;
+            }
+        } catch (Exception e) {
+        }
+        
+        return f;
     }
 
 }

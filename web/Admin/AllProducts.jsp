@@ -4,10 +4,12 @@
     Author     : shanu
 --%>
 
+<%@page import="java.net.URLEncoder"%>
 <%@page import="java.io.File"%>
 <%@page import="java.util.List"%>
 <%@page import="com.entity.ProductDetails"%>
 <%@page import="com.db.DbConnect"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.DAO.ProductsDAOImpl"%>
 <%@page import="com.DAO.ProductsDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -27,6 +29,16 @@
 
         <%@include file="navbarAdmin.jsp" %>
         <h3 class="text-center">All Products</h3>
+
+        <c:if test="${not empty sucsMsg }">
+            <p class="text-center text-success mb-2">${sucsMsg}</p>
+            <c:remove var="sucsMsg" scope="session" />
+        </c:if>
+
+        <c:if test="${not empty failMsg }">
+            <p class="text-center text-danger mb-2">${failMsg}</p>
+            <c:remove var="failMsg" scope="session" />
+        </c:if> 
 
         <table class="table table-striped">
             <thead class="bg-primary">
@@ -50,7 +62,7 @@
                     for (ProductDetails p : list) {
                 %>
                 <tr>
-                    <td><%= p.getProductId() %></td>
+                    <td><%= p.getProductId()%></td>
                     <td><img alt="${pageContext.request.contextPath}/products/<%=p.getPhotoName()%>" src="${pageContext.request.contextPath}/products/<%=p.getPhotoName()%>" width="50px" height="50px"/></td>
                     <td><%= p.getProductname()%></td>
                     <td><%= p.getOwner()%></td>
@@ -58,8 +70,10 @@
                     <td><%= p.getProductCategory()%></td>
                     <td><%= p.getStatus()%></td>
                     <td>
-                        <a href="" class="btn btn-sm btn-primary">Edit</a>
-                        <a href="" class="btn btn-sm btn-danger">Delete</a>
+
+                        <a href="./Edit_products.jsp?Pid=<%= p.getProductId()%>"
+                           class="btn btn-sm btn-primary">Edit</a>
+                        <a href="../delete?Pid=<%= p.getProductId()%>" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
                 <%

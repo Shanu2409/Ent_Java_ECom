@@ -37,6 +37,13 @@ public class ProductAdd extends HttpServlet {
             String price = req.getParameter("price");
             String pcategory = req.getParameter("pcategory");
             String pstatus = req.getParameter("pstatus");
+
+            if (pstatus != null && pstatus.equals("2")) {
+                pstatus = "Inactive";
+            } else {
+                pstatus = "Active";
+            }
+
             Part part = req.getPart("bimg"); // to collec the binary data (img)
 
             String fileName = part.getSubmittedFileName();
@@ -46,45 +53,45 @@ public class ProductAdd extends HttpServlet {
 
             ProductsDAOImpl dao = new ProductsDAOImpl(DbConnect.getCon());
 
-            
+            System.out.println("Status : " + pstatus + "---------------------------------------");
 
             boolean f = dao.AddProducts(b);
-            
+
             HttpSession sesstion = req.getSession();
-            
-            if(f) {
+
+            if (f) {
                 String path = getServletContext().getRealPath("") + File.separator + "products"; // Use File.separator for cross-platform compatibility
 
 // Create the directory if it doesn't exist
-            File directory = new File(path);
-            if (!directory.exists()) {
-                directory.mkdirs();
-            }
-
-            String filePath = path + File.separator + fileName;
-
-            File targetFile = new File(filePath);
-            if (targetFile.exists()) {
-                // Generate a unique file name to avoid overwriting
-                int counter = 1;
-                String baseFileName = fileName.substring(0, fileName.lastIndexOf('.'));
-                String fileExtension = fileName.substring(fileName.lastIndexOf('.'));
-                while (targetFile.exists()) {
-                    fileName = baseFileName + "_" + counter + fileExtension;
-                    filePath = path + File.separator + fileName;
-                    targetFile = new File(filePath);
-                    counter++;
+                File directory = new File(path);
+                if (!directory.exists()) {
+                    directory.mkdirs();
                 }
-            }
 
-            try (InputStream inputStream = part.getInputStream()) {
-                Files.copy(inputStream, targetFile.toPath());
-    // Now the file is saved in the specified path
-            } catch (IOException e) {
-                // Handle the exception appropriately
-                e.printStackTrace();
-            }
-            
+                String filePath = path + File.separator + fileName;
+
+                File targetFile = new File(filePath);
+                if (targetFile.exists()) {
+                    // Generate a unique file name to avoid overwriting
+                    int counter = 1;
+                    String baseFileName = fileName.substring(0, fileName.lastIndexOf('.'));
+                    String fileExtension = fileName.substring(fileName.lastIndexOf('.'));
+                    while (targetFile.exists()) {
+                        fileName = baseFileName + "_" + counter + fileExtension;
+                        filePath = path + File.separator + fileName;
+                        targetFile = new File(filePath);
+                        counter++;
+                    }
+                }
+
+                try (InputStream inputStream = part.getInputStream()) {
+                    Files.copy(inputStream, targetFile.toPath());
+                    // Now the file is saved in the specified path
+                } catch (IOException e) {
+                    // Handle the exception appropriately
+                    e.printStackTrace();
+                }
+
                 sesstion.setAttribute("sucsMsg", "Product Added Successfully");
                 resp.sendRedirect("Admin/AddProducts.jsp");
             } else {
