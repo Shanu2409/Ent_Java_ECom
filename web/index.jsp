@@ -43,14 +43,14 @@
 
         <!--start recent products-->
 
-         <div class="container-fluid mt-5">
+        <div class="container-fluid mt-5">
             <h3 class="text-center">Recent Products</h3>
             <div class="row ml-5 mr-5">
 
                 <%
                     ProductsDAOImpl dao = new ProductsDAOImpl(DbConnect.getCon());
                     List<ProductDetails> list2 = dao.getAllProducts();
-                    
+
                     Collections.reverse(list2);
                     list2 = list2.subList(0, Math.min(4, list2.size()));
                     for (ProductDetails p : list2) {
@@ -63,8 +63,14 @@
                             <p><%= p.getOwner()%></p>
                             <p>Category : <%= p.getProductCategory()%></p>
                             <div class="row text-center justify-content-center">
+                                <%
+                                    if (!p.getStatus().equals("Inactive")) { %>
+
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
+                                <%}
+                                %>
+
+                                <a href="view_Product.jsp?pid=<%= p.getProductId()%>" class="btn btn-success btn-sm ml-1">View Details</a>
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-indian-rupee-sign"></i> <%= p.getPrice()%></a>
                             </div>
 
@@ -94,7 +100,7 @@
 
         <!--start new product-->
 
-        
+
 
         <div class="container-fluid mt-5">
             <h3 class="text-center">New Products</h3>
@@ -114,8 +120,14 @@
                             <p><%= p.getOwner()%></p>
                             <p>Category : <%= p.getProductCategory()%></p>
                             <div class="row text-center justify-content-center">
+                                <%
+                                    if (!p.getStatus().equals("Inactive")) { %>
+
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
+                                <%}
+                                %>
+
+                                <a href="view_Product.jsp?pid=<%= p.getProductId()%>" class="btn btn-success btn-sm ml-1">View Details</a>
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-indian-rupee-sign"></i> <%= p.getPrice()%></a>
                             </div>
 
@@ -162,8 +174,14 @@
                             <p><%= p.getOwner()%></p>
                             <p>Category : <%= p.getProductCategory()%></p>
                             <div class="row text-center justify-content-center">
+                                <%
+                                    if (!p.getStatus().equals("Active")) { %>
+
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
+                                <%}
+                                %>
+
+                                <a href="view_Product.jsp?pid=<%= p.getProductId()%>" class="btn btn-success btn-sm ml-1">View Details</a>
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-indian-rupee-sign"></i> <%= p.getPrice()%></a>
                             </div>
 

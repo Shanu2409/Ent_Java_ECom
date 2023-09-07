@@ -166,7 +166,7 @@ public class ProductsDAOImpl implements ProductsDAO {
         ProductDetails p = null;
         
         try {
-            String sql = "select * from product_details where status = 'Active' and productCategory = 'New'";
+            String sql = "select * from product_details where productCategory = 'New'";
             PreparedStatement ps = con.prepareStatement(sql);
             
             ResultSet rs = ps.executeQuery();
@@ -199,7 +199,7 @@ public class ProductsDAOImpl implements ProductsDAO {
         ProductDetails p = null;
         
         try {
-            String sql = "select * from product_details where status = 'Active' and productCategory = 'Old'";
+            String sql = "select * from product_details where productCategory = 'Old'";
             PreparedStatement ps = con.prepareStatement(sql);
             
             ResultSet rs = ps.executeQuery();

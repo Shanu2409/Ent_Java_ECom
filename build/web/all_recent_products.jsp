@@ -37,12 +37,16 @@
                             <p><%= p.getOwner()%></p>
                             <p>Category : <%= p.getProductCategory()%></p>
                             <div class="row text-center justify-content-center">
+                                <%
+                                    if (!p.getStatus().equals("Inactive")) { %>
+
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
-                                <a href="" class="btn btn-success btn-sm ml-1">View Details</a>
+                                <%}
+                                %>
+
+                                <a href="view_Product.jsp?pid=<%= p.getProductId()%>" class="btn btn-success btn-sm ml-1">View Details</a>
                                 <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-indian-rupee-sign"></i> <%= p.getPrice()%></a>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
