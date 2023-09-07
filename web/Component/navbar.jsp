@@ -22,17 +22,17 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#"><i class="fa-solid fa-house"></i> Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/E_Com"><i class="fa-solid fa-house"></i> Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Recent Product</a>
+          <a class="nav-link" href="all_recent_products.jsp">Recent Product</a>
       </li>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#">New Product</a>
+          <a class="nav-link" href="all_new_products.jsp">New Product</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link disabled" href="#">Old product</a>
+      <a class="nav-link disabled" href="all_old_products.jsp">Old product</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

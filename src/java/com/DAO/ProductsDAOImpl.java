@@ -226,4 +226,66 @@ public class ProductsDAOImpl implements ProductsDAO {
         return list;
     }
 
+    @Override
+    public List<ProductDetails> getAllNewProducts() {
+        List<ProductDetails> list = new ArrayList<ProductDetails>();
+        ProductDetails p = null;
+        
+        try {
+            String sql = "select * from product_details where status = 'Active' and productCategory = 'New'";
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                p = new ProductDetails();
+                p.setProductId(rs.getInt(1));
+                p.setProductname(rs.getString(2));
+                p.setOwner(rs.getString(3));
+                p.setPrice(rs.getString(4));
+                p.setProductCategory(rs.getString(5));
+                p.setStatus(rs.getString(6));
+                p.setPhotoName(rs.getString(7));
+                p.setEmail(rs.getString(8));
+                
+                list.add(p);
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
+
+    @Override
+    public List<ProductDetails> getAllOldroducts() {
+        List<ProductDetails> list = new ArrayList<ProductDetails>();
+        ProductDetails p = null;
+        
+        try {
+            String sql = "select * from product_details where status = 'Active' and productCategory = 'Old'";
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                p = new ProductDetails();
+                p.setProductId(rs.getInt(1));
+                p.setProductname(rs.getString(2));
+                p.setOwner(rs.getString(3));
+                p.setPrice(rs.getString(4));
+                p.setProductCategory(rs.getString(5));
+                p.setStatus(rs.getString(6));
+                p.setPhotoName(rs.getString(7));
+                p.setEmail(rs.getString(8));
+                
+                list.add(p);
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return list;
+    }
+
 }

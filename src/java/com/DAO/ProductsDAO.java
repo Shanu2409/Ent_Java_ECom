@@ -23,4 +23,8 @@ public interface ProductsDAO {
     public List<ProductDetails> getNewProducts();
     
     public List<ProductDetails> getOldProducts();
+    
+    public List<ProductDetails> getAllNewProducts();
+    
+    public List<ProductDetails> getAllOldroducts();
 }

@@ -52,6 +52,7 @@
                     List<ProductDetails> list2 = dao.getAllProducts();
                     
                     Collections.reverse(list2);
+                    list2 = list2.subList(0, Math.min(4, list2.size()));
                     for (ProductDetails p : list2) {
                 %>
                 <div class="col-md-3">
@@ -82,7 +83,7 @@
 
             </div>
             <div class="text-center my-3">
-                <a href="" class="btn btn-danger btn-sm">View All</a>
+                <a href="all_recent_products.jsp" class="btn btn-danger btn-sm">View All</a>
             </div>
         </div>
 
@@ -133,7 +134,7 @@
 
             </div>
             <div class="text-center my-3">
-                <a href="" class="btn btn-danger btn-sm">View All</a>
+                <a href="all_new_products.jsp" class="btn btn-danger btn-sm">View All</a>
             </div>
         </div>
 
@@ -181,7 +182,7 @@
 
             </div>
             <div class="text-center my-3">
-                <a href="" class="btn btn-danger btn-sm">View All</a>
+                <a href="all_old_products.jsp" class="btn btn-danger btn-sm">View All</a>
             </div>
         </div>
 
