@@ -21,29 +21,35 @@
     </head>
     <body>
         <%@include file="Component/navbar.jsp" %>
+        <c:if test="${empty userObj}">
+            <c:redirect url="/Login.jsp" />
+        </c:if>
         
         <div class="container">
             <h3 class="text-center">Hello user!!</h3>
+            <c:if test="${not empty failMsg}">
+                                <h5 class="text-center text-danger mb-2">${failMsg}</h5>
+                                <c:remove var="failMsg" scope="session" />
+                            </c:if>
+                            <c:if test="${not empty sucsMsg}">
+                                <h5 class="text-center text-success mb-2">${sucsMsg}</h5>
+                                <c:remove var="sucsMsg" scope="session" />
+                            </c:if>
+                            <c:if test="${not empty PassWrng}">
+                                <h5 class="text-center text-warning mb-2">${sucsMsg}</h5>
+                                <c:remove var="sucsMsg" scope="session" />
+                            </c:if>
             <div class="row p-5">
                 
                 <!--sell old books-->
                 
-                <div class="col-md-6">
-                    <a href="sellProduct.jsp">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <i class="fa-solid fa-hand-holding-dollar fa-3x text-primary"></i>
-                                <h3>Sell Old Products</h3>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                
                 
                 
                 <!--Edit profile-->
                 
                 
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <a href="editProfile.jsp">
                         <div class="card">
                             <div class="card-body text-center">

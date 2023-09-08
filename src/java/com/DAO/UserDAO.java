@@ -15,4 +15,8 @@ public interface UserDAO {
     public boolean userRegister(User us);
     
     public User userLogin(String email, String password);
+    
+    public boolean checkPassword(int id, String pass);
+    
+    public boolean updateProfile(User us);
 }
