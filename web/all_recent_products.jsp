@@ -9,6 +9,8 @@
 <%@page import="com.entity.ProductDetails"%>
 <%@page import="com.DAO.ProductsDAOImpl"%>
 <%@page import="com.db.DbConnect"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +20,27 @@
         <%@include file="Component/allCss.jsp" %>
     </head>
     <body>
+        <%
+            User u = (User) session.getAttribute("userObj");
+        %>
+        <c:if test="${not empty addCart}">
+            <div id="toast">${addCart}</div>
+
+            <script type="text/javascript">
+                            showToast();
+                            function showToast(content)
+                            {
+                                $('#toast').addClass("display");
+                                $('#toast').html(content);
+                                setTimeout(()=>{
+                                    $("#toast").removeClass("display");
+                                },5000)
+                            }	
+            </script>
+            
+            <c:remove var="addCart" scope="session" />
+        </c:if>
+            
         <%@include file="Component/navbar.jsp" %>
         <h3 class="text-center">Recent Products</h3>
         <div class="container-fluid">
@@ -40,7 +63,14 @@
                                 <%
                                     if (!p.getStatus().equals("Inactive")) { %>
 
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+                                <% if (u == null) { %>
+                                <a href="Login.jsp" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+
+                                <% } else { %>
+                                <a href="cart?pid=<%= p.getProductId() %>&&uid=<%= u.getId()%>" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+                                <% } %>
+                               
+
                                 <%}
                                 %>
 

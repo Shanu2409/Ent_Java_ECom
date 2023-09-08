@@ -35,6 +35,9 @@
         </style>
     </head>
     <body>
+        <%
+            User u = (User) session.getAttribute("userObj");
+        %>
         <%@include file="Component/navbar.jsp" %>
         <div class="container-fluid back-img"></div>
 
@@ -66,7 +69,14 @@
                                 <%
                                     if (!p.getStatus().equals("Inactive")) { %>
 
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+                                <% if (u == null) { %>
+                                <a href="Login.jsp" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+
+                                <% } else { %>
+                                <a href="cart?pid=<%= p.getProductId() %>&&uid=<%= u.getId()%>" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+                                <% } %>
+                               
+
                                 <%}
                                 %>
 
@@ -123,7 +133,14 @@
                                 <%
                                     if (!p.getStatus().equals("Inactive")) { %>
 
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+                                <% if (u == null) { %>
+                                <a href="Login.jsp" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+
+                                <% } else { %>
+                                <a href="cart?pid=<%= p.getProductId() %>&&uid=<%= u.getId()%>" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+                                <% } %>
+                               
+
                                 <%}
                                 %>
 
@@ -175,9 +192,16 @@
                             <p>Category : <%= p.getProductCategory()%></p>
                             <div class="row text-center justify-content-center">
                                 <%
-                                    if (!p.getStatus().equals("Active")) { %>
+                                    if (!p.getStatus().equals("Inactive")) { %>
 
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+                                <% if (u == null) { %>
+                                <a href="Login.jsp" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+
+                                <% } else { %>
+                                <a href="cart?pid=<%= p.getProductId() %>&&uid=<%= u.getId()%>" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+                                <% } %>
+                               
+
                                 <%}
                                 %>
 

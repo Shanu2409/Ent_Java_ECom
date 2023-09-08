@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
+
  * @author shanu
  */
 @WebServlet("/login")
@@ -51,8 +51,8 @@ public class LoginServlet extends HttpServlet {
                 User us = dao.userLogin(email, password);
 
                 if (us != null) {
-                    session.setAttribute("useObj", us);
-                    resp.sendRedirect("UserHome.jsp");
+                    session.setAttribute("userObj", us);
+                    resp.sendRedirect("index.jsp");
                 } else {
                     session.setAttribute("failMsg", "User & Passwordre Invaild");
                     resp.sendRedirect("Login.jsp");

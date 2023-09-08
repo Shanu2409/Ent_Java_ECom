@@ -18,6 +18,9 @@
         <%@include file="Component/allCss.jsp" %>
     </head>
     <body>
+        <%
+            User u = (User) session.getAttribute("userObj");
+        %>
         <%@include file="Component/navbar.jsp" %>
         <h3 class="text-center">New Products</h3>
         <div class="container-fluid">
@@ -39,7 +42,14 @@
                                 <%
                                     if (!p.getStatus().equals("Inactive")) { %>
 
-                                <a href="" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+                                <% if (u == null) { %>
+                                <a href="Login.jsp" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+
+                                <% } else { %>
+                                <a href="cart?pid=<%= p.getProductId() %>&&uid=<%= u.getId()%>" class="btn btn-danger btn-sm ml-1"><i class="fa-solid fa-cart-shopping"></i> Add Cart</a>
+                                <% } %>
+                               
+
                                 <%}
                                 %>
 
