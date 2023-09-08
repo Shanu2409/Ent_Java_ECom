@@ -14,7 +14,7 @@
         <div class="col-md-3">
 
             <c:if test="${not empty userObj}">
-                <a href="cart.jsp"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
+                <a href="checkout.jsp"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
                 <a href="/Ent_Java_ECom" class="btn btn-success"><i class="fas fa-user"></i> ${userObj.name}</a>
                 <a data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa-solid fa-arrow-up-right-from-square"></i> Log Out</a>
             </c:if>

@@ -4,7 +4,14 @@
     Author     : shanu
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="com.entity.Cart"%>
+<%@page import="com.db.DbConnect"%>
+<%@page import="com.DAO.CartDAOImpl"%>
+<%@page import="com.DAO.CartDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +20,30 @@
         <%@include file="Component/allCss.jsp" %>
     </head>
     <body style="background-color: #f0f1f2">
+        <c:if test="${empty userObj}">
+            <c:redirect url="Login.jsp"></c:redirect>
+        </c:if>
         <%@include file="Component/navbar.jsp" %>
+        
+        <% Double total = 0.0; %>
+        
+        
+        
+        <c:if test="${not empty succMsg}">
+            <div class="alert alert-success" role="alert">
+                Successfully deleted from the Cart
+            </div>
+            
+            <c:remove var="succMsg" scope="session" />
+        </c:if>
+        
+        <c:if test="${not empty failed}">
+            <div class="alert alert-danger" role="alert">
+                Something went wrong
+            </div>
+            
+            <c:remove var="failed" scope="session" />
+        </c:if>
 
         <div class="container">
             <div class="row p-2">
@@ -24,30 +54,40 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
+                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Owner</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <%
+                                      User u = (User) session.getAttribute("userObj");
+                                      CartDAOImpl dao = new CartDAOImpl(DbConnect.getCon());
+                                      
+                                      List<Cart> cList =  dao.getBookByUser(u.getId());
+                                      
+                                      
+                                      
+                                      for(Cart c : cList) {
+                                          total = c.getTotal();
+                                    %>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <th scope="row"><%= c.getProductName() %></th>
+                                        <td><%= c.getOwner()%></td>
+                                        <td><%= c.getPrice()%></td>
+                                        <td>
+                                            <a href="removeProduct?pid=<%= c.getPid()%>&&cid=<%= c.getCid()%>" class="btn btn-sm btn-danger">Remove</a>
+                                        </td>
                                     </tr>
+                                    
+                                    <% } %>
+                                    
                                     <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
+                                        <td>Total Price</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><i class="fa-solid fa-rupee-sign"></i> <span class="fa-solid">  <%= total %></span></td>
                                     </tr>
                                 </tbody>
                             </table>
