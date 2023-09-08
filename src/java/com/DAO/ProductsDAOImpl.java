@@ -86,7 +86,6 @@ public class ProductsDAOImpl implements ProductsDAO {
        @Override
     public boolean UpdateEditProducts(ProductDetails p) {
         boolean f = false;
-        
            try {
                String sql = "update product_details set productname = ?, owner = ?, price = ?, status = ? where productid = ?";
                

@@ -50,16 +50,16 @@
 
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Product Status</label>
-                                    <select name="category" id="category" class="form-control">
+                                    <select name="status" id="category" class="form-control">
                                         <%
-                                            if (p.getProductCategory().equals("Inactive")) {
+                                            if (p.getStatus().equals("Inactive")) {
                                         %>
                                         <option value="Inactive" selected>Inactive</option>
-                                        <option value="Active" selected>Active</option>   
+                                        <option value="Active">Active</option>   
                                         <%
                                         } else {
                                         %>
-                                        <option value="Inactive" selected>Inactive</option>
+                                        <option value="Inactive">Inactive</option>
                                         <option value="Active" selected>Active</option>  
                                         <%
                                             }

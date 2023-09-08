@@ -26,7 +26,6 @@ public class EditProducts extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            System.out.println("Etery----------------------------");
             int id = Integer.parseInt(req.getParameter("id"));
 //            String id = req.getParameter("Pid");
             
@@ -34,7 +33,9 @@ public class EditProducts extends HttpServlet {
             String pname = req.getParameter("pname");
             String powner = req.getParameter("powner");
             String price = req.getParameter("price");
-            String pcategory = req.getParameter("pcategory");
+            String pcategory = req.getParameter("status").equals(null) ? "Unactive" : req.getParameter("status") ;
+            
+            
 
             ProductDetails p = new ProductDetails();
 
@@ -42,7 +43,7 @@ public class EditProducts extends HttpServlet {
             p.setProductname(pname);
             p.setPrice(price);
             p.setOwner(powner);
-            p.setProductCategory(pcategory);
+            p.setStatus(pcategory);
 
             ProductsDAOImpl dao = new ProductsDAOImpl(DbConnect.getCon());
             boolean f = dao.UpdateEditProducts(p);
