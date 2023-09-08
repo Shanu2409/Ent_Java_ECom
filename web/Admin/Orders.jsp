@@ -1,3 +1,8 @@
+<%@page import="com.entity.Product_order"%>
+<%@page import="java.util.List"%>
+<%@page import="com.DAO.ProductOrderDAOImpl"%>
+<%@page import="com.db.DbConnect"%>
+<%@page import="com.entity.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,57 +22,49 @@
         <c:if test="${empty userObj}">
             <c:redirect url="../Login.jsp" />
         </c:if>
-        <h3 class="text-center">All Orders</h3>
-        
-        <table class="table table-striped">
-            <thead class="bg-primary">
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Phone no.</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Owner</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Payment Type</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Mark</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Jacob</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@fat</td>
-                    <td>@fat</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="container">
+            <div class="">
+                <div class="p-4">
+                    <div class="card mt-2">
+                        <div class="p-2">
+                            <h4 class="text-center">All Orders</h4>
+                            <table class="table table-striped mt-3">
+                                <thead class="bg-secondary text-white">
+                                    <tr>
+                                        <th scope="col">Order Id</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Product Name</th>
+                                        <th scope="col">Owner</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Payment Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <%
+                                            User u = (User) session.getAttribute("userObj");
+                                            ProductOrderDAOImpl dao = new ProductOrderDAOImpl(DbConnect.getCon());
+                                            
+                                            List<Product_order> plist = dao.getOrders();
+                                            
+                                            for(Product_order p : plist) {
+                                        %>
+                                        <th scope="row"><%= p.getOrder_id()%></th>
+                                        <td><%= p.getUserName()%></td>
+                                        <td><%= p.getProductName()%></td>
+                                        <td><%= p.getOwner()%></td>
+                                        <td><%= p.getPrice()%></td>
+                                        <td><%= p.getPayment()%></td>
+                                    </tr>
+                                    <% } %>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

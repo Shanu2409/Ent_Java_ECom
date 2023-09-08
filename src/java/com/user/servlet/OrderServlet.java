@@ -56,7 +56,11 @@ public class OrderServlet extends HttpServlet {
             List<Cart> pList = dao.getBookByUser(id);
 
 //            int orderID = ProductOrderDao.getOrderNumber();
-            ArrayList<Product_order> orderList = new ArrayList<Product_order>();
+            if(pList.isEmpty()){
+                session.setAttribute("OrderFailMsg", "!!!! Cart is Empty !!!!");
+                resp.sendRedirect("checkout.jsp");
+            } else {
+                ArrayList<Product_order> orderList = new ArrayList<Product_order>();
 
             Random r = new Random();
 
@@ -87,6 +91,7 @@ public class OrderServlet extends HttpServlet {
             } else {
                 session.setAttribute("OrderFailMsg", "Something wrong with DataBase");
                 resp.sendRedirect("checkout.jsp");
+            }
             }
 
         } catch (Exception e) {

@@ -24,6 +24,10 @@
             ProductsDAOImpl dao = new ProductsDAOImpl(DbConnect.getCon());
             ProductDetails p = dao.getProductDetailById(pid);
         %>
+        
+        <%
+            User u = (User) session.getAttribute("userObj");
+        %>
         <div class="container p-3">
             <div class="row">
                 <div class="col-md-6 p-5 text-center border bg-white">
@@ -64,7 +68,7 @@
                             
                                 <a href="/E_Com" class="btn btn-secondary"><i class="fa-solid fa-house"></i> Home</a>
                             <%} else { %>
-                                <a href="" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
+                                <a href="cart?pid=<%= p.getProductId() %>&&uid=<%= u.getId()%>" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
                             <% }
                         %>
                         

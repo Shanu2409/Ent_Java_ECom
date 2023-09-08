@@ -46,7 +46,7 @@
         </c:if>
 
         <c:if test="${not empty OrderFailMsg}">
-            <h5 class="text-center text-success mb-2">${OrderFailMsg}</h5>
+            <h5 class="text-center text-danger mb-2">${OrderFailMsg}</h5>
             <c:remove var="OrderFailMsg" scope="session" />
         </c:if>
 

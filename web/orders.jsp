@@ -4,6 +4,12 @@
     Author     : shanu
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="com.DAO.ProductOrderDAOImpl"%>
+<%@page import="com.DAO.ProductOrderDAO"%>
+<%@page import="com.entity.Product_order"%>
+<%@page import="com.db.DbConnect"%>
+<%@page import="com.DAO.ProductsDAOImpl"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +31,6 @@
                                 <thead class="bg-secondary text-white">
                                     <tr>
                                         <th scope="col">Order Id</th>
-                                        <th scope="col">Image</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Product Name</th>
                                         <th scope="col">Owner</th>
@@ -35,32 +40,24 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td><img alt="" src="" width="50px" height="50px"/></td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
+
+                                        <%
+                                            User u = (User) session.getAttribute("userObj");
+                                            ProductOrderDAOImpl dao = new ProductOrderDAOImpl(DbConnect.getCon());
+                                            
+                                            List<Product_order> plist = dao.getOrders(u.getEmail());
+                                            
+                                            for(Product_order p : plist) {
+                                        %>
+                                        <th scope="row"><%= p.getOrder_id()%></th>
+                                        <td><%= p.getUserName()%></td>
+                                        <td><%= p.getProductName()%></td>
+                                        <td><%= p.getOwner()%></td>
+                                        <td><%= p.getPrice()%></td>
+                                        <td><%= p.getPayment()%></td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td><img alt="" src="" width="50px" height="50px"/></td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>@fat</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td><img alt="" src="" width="50px" height="50px"/></td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>the Bird</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
+                                    <% } %>
+
                                 </tbody>
                             </table>
                         </div>

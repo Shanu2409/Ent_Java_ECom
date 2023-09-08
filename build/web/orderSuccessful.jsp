@@ -19,6 +19,7 @@
             <p>🎉🎉🎉🎉</p>
             <h1>Order successful</h1>
             <a href="/E_Com" class="btn btn-primary mt-4"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="orders.jsp" class="btn btn-secondary mt-4"><i class="fa-solid fa-house"></i> View Orders</a>
         </div>
     </body>
 </html>

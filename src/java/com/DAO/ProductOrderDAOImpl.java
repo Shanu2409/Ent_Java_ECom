@@ -9,6 +9,7 @@ import com.entity.Product_order;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,26 +23,6 @@ public class ProductOrderDAOImpl implements ProductOrderDAO{
         this.con = con;
     }
 
-    @Override
-    public int getOrderNumber() {
-        int i = 0;
-        try {
-            String sql = "select * from product_order";
-            
-            PreparedStatement ps = con.prepareStatement(sql);
-            
-             ResultSet rs =  ps.executeQuery();
-             
-             while(rs.next()){
-                 i++;
-             }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        return i;
-    }
 
     @Override
     public boolean saveOrder(List<Product_order> p) {
@@ -80,6 +61,86 @@ public class ProductOrderDAOImpl implements ProductOrderDAO{
         
 //        System.out.println(f);
         return f;
+    }
+
+    @Override
+    public int getOrderNumber() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Product_order> getOrders(String email) {
+        List<Product_order> pOrder = new ArrayList<Product_order>();
+        
+        Product_order po = null;
+        
+        try {
+            String sql = "select * from product_order where email = ?";
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setString(1, email);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                po = new Product_order();
+                
+                po.setId(rs.getInt(1));
+                po.setOrder_id(rs.getString(2));
+                po.setUserName(rs.getString(3));
+                po.setEmail(rs.getString(4));
+                po.setFullAddress(rs.getString(5));
+                po.setPhone(rs.getString(6));
+                po.setProductName(rs.getString(7));
+                po.setOwner(rs.getString(8));
+                po.setPrice(rs.getString(9));
+                po.setPayment(rs.getString(10));
+                
+                pOrder.add(po);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return pOrder;
+    }
+
+    @Override
+    public List<Product_order> getOrders() {
+        List<Product_order> pOrder = new ArrayList<Product_order>();
+        
+        Product_order po = null;
+        
+        try {
+            String sql = "select * from product_order";
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                po = new Product_order();
+                
+                po.setId(rs.getInt(1));
+                po.setOrder_id(rs.getString(2));
+                po.setUserName(rs.getString(3));
+                po.setEmail(rs.getString(4));
+                po.setFullAddress(rs.getString(5));
+                po.setPhone(rs.getString(6));
+                po.setProductName(rs.getString(7));
+                po.setOwner(rs.getString(8));
+                po.setPrice(rs.getString(9));
+                po.setPayment(rs.getString(10));
+                
+                pOrder.add(po);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return pOrder;
     }
     
 }

@@ -1,11 +1,11 @@
-<div class="card">
+<div class="card text-center">
   <div class="card-header">
-    Quote
+    Thanos was Right !!!!!!!!
   </div>
-  <div class="card-body">
+  <div class="card-body bg-primary text-white">
     <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-      <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+      <p>This page is created by Shanu2409</p>
+      <footer class="blockquote-footer text-white ">This is Created to submit my Enterprise java CE2 project</footer>
     </blockquote>
   </div>
 </div>

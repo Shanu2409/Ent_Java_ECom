@@ -16,4 +16,8 @@ public interface ProductOrderDAO {
     public int getOrderNumber();
     
     public boolean saveOrder(List<Product_order> p);
+    
+    public List<Product_order> getOrders(String email);
+    
+    public List<Product_order> getOrders();
 }
