@@ -62,7 +62,7 @@
                         <%
                             if(p.getStatus().equals("Inactive")){ %>
                             
-                                <a href="/Ent_Java_ECom" class="btn btn-secondary"><i class="fa-solid fa-house"></i> Home</a>
+                                <a href="/E_Com" class="btn btn-secondary"><i class="fa-solid fa-house"></i> Home</a>
                             <%} else { %>
                                 <a href="" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i> Add to Cart</a>
                             <% }

@@ -3,7 +3,7 @@
 <div class="container-fluid p-3">
     <div class="row">
         <div class="col-md-3">
-            <h3><a href="/Ent_Java_ECom">E-Commerce</a></h3>
+            <h3><a href="/E_Com">E-Commerce</a></h3>
         </div>
         <div class="col-md-6">
             <form class="form-inline my-2 my-lg-0">
@@ -15,7 +15,7 @@
 
             <c:if test="${not empty userObj}">
                 <a href="checkout.jsp"><i class="fa-solid fa-cart-shopping fa-2x"></i></a>
-                <a href="/Ent_Java_ECom" class="btn btn-success"><i class="fas fa-user"></i> ${userObj.name}</a>
+                <a href="/E_Com" class="btn btn-success"><i class="fas fa-user"></i> ${userObj.name}</a>
                 <a data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa-solid fa-arrow-up-right-from-square"></i> Log Out</a>
             </c:if>
 
@@ -53,7 +53,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/Ent_Java_ECom"><i class="fa-solid fa-house"></i> Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/E_Com"><i class="fa-solid fa-house"></i> Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="all_recent_products.jsp">Recent Product</a>

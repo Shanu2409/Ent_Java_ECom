@@ -3,7 +3,7 @@
 <div class="container-fluid p-3">
     <div class="row">
         <div class="col-md-3">
-            <h3><a href="/Ent_Java_ECom">E-Commerce</a></h3>
+            <h3><a href="/E_Com">E-Commerce</a></h3>
         </div>
         <div class="col-md-6">
             <form class="form-inline my-2 my-lg-0">
@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-3">
             <c:if test="${not empty userObj}">
-                <a href="/Ent_Java_ECom/Admin/AdminHome.jsp" class="btn btn-success"><i class="fas fa-user"></i> ${userObj.name}</a>
+                <a href="/E_Com/Admin/AdminHome.jsp" class="btn btn-success"><i class="fas fa-user"></i> ${userObj.name}</a>
                 <a data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa-solid fa-arrow-up-right-from-square"></i> Log Out</a>
             </c:if>
 

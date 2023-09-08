@@ -20,7 +20,7 @@
                     <div class="">
                         <div class="p-2">
                             <img src="https://formalnews.in/wp-content/uploads/2021/01/Aatma-Nirbhar-Bharat.jpg" class="card rounded mx-auto d-block" alt="Arma nirbhar bharat" height="500px" />
-                            <a href="/Ent_Java_ECom" class="btn btn-primary mt-4"><i class="fa-solid fa-house"></i> Home</a>
+                            <a href="/E_Com" class="btn btn-primary mt-4"><i class="fa-solid fa-house"></i> Home</a>
                         </div>
                     </div>
                 </div>

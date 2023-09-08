@@ -3,13 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/DAO/CartDAOImpl.java</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/all_new_products.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/index.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/DAO/CartDAO.java</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/user/servlet/RemoveProductServlet.java</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/checkout.jsp</file>
-            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Component/navbar.jsp</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/DAO/UserDAO.java</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Admin/AddProducts.jsp</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/DAO/UserDAOImpl.java</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/setting.jsp</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/updateProfile.java</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/Login.jsp</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/user/servlet/RegisterServlet.java</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/web/editProfile.jsp</file>
+            <file>file:/C:/Users/shanu/Videos/ty/J-EE/E_Com/src/java/com/user/servlet/LoginServlet.java</file>
         </group>
     </open-files>
 </project-private>
